@@ -15,7 +15,7 @@ app = Flask(__name__, template_folder=template_dir)
 # Configure CORS for production and local development
 CORS(app, resources={
     r"/api/*": {
-        "origins": ["http://localhost:3000", "http://localhost:5173", "https://*.netlify.app"],
+        "origins": ["http://localhost:3000", "http://localhost:5173", "http://localhost:5174", "https://*.netlify.app"],
         "methods": ["GET", "POST", "OPTIONS"],
         "allow_headers": ["Content-Type"]
     }

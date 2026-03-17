@@ -8,7 +8,7 @@ function App() {
   const [error, setError] = useState(null)
   const [history, setHistory] = useState([])
 
-  // Use environment variable or fallback to localhost
+  // Use environment variable or fallback to localhost for development
   const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
 
   const handleSubmit = async (e) => {
