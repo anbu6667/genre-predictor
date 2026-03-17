@@ -11,7 +11,15 @@ app_dir = os.path.dirname(os.path.abspath(__file__))
 template_dir = os.path.join(app_dir, 'templetes')
 
 app = Flask(__name__, template_folder=template_dir)
-CORS(app)
+
+# Configure CORS for production and local development
+CORS(app, resources={
+    r"/api/*": {
+        "origins": ["http://localhost:3000", "http://localhost:5173", "https://*.netlify.app"],
+        "methods": ["GET", "POST", "OPTIONS"],
+        "allow_headers": ["Content-Type"]
+    }
+})
 
 # MongoDB Connection
 # For local MongoDB: mongodb://localhost:27017

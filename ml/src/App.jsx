@@ -8,6 +8,9 @@ function App() {
   const [error, setError] = useState(null)
   const [history, setHistory] = useState([])
 
+  // Use environment variable or fallback to localhost
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     
@@ -25,8 +28,9 @@ function App() {
       formData.append('text', text)
 
       console.log('Sending request with text:', text)
+      console.log('API URL:', API_URL)
 
-      const response = await fetch('http://localhost:5000/api/predict', {
+      const response = await fetch(`${API_URL}/api/predict`, {
         method: 'POST',
         body: formData,
         headers: {
